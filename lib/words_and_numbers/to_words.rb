@@ -1,16 +1,10 @@
 require "words_and_numbers/words"
+require "words_and_numbers/conversion"
 
 module WordsAndNumbers
   class ToWords
+    extend WordsAndNumbers::Conversion
     # Convert a Fixnum to a string
-    def self.convert(input)
-      @input = input
-      raise WordsAndNumbers::ConversionError,
-        "Unsupported Type: #{@input.class}" unless correct_input?
-
-      process
-      build
-    end
 
     # Build @processed array into final output
     def self.build
@@ -64,10 +58,8 @@ module WordsAndNumbers
       ("%0#{length}d" % number).split("").map(&:to_i)
     end
 
-    # Check if @input is a Fixnum
-    def self.correct_input?
-      @input.is_a?(Fixnum)
+    def self.conversion_types
+      [Fixnum]
     end
-
   end
 end

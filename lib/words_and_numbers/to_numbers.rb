@@ -1,13 +1,10 @@
+require "words_and_numbers/words"
+require "words_and_numbers/conversion"
+
 module WordsAndNumbers
   class ToNumbers
-    def self.convert(input)
-      @input = input
-      raise WordsAndNumbers::ConversionError,
-        "Unsupported Type: #{@input.class}" unless correct_input?
-
-      process
-      build
-    end
+    extend WordsAndNumbers::Conversion
+    # Convert a String to a Fixnum
 
     # Split @input into sections
     def self.process
@@ -46,9 +43,8 @@ module WordsAndNumbers
       Hash[Words.l.map.with_index.to_a]
     end
 
-    # Check if @input is a String
-    def self.correct_input?
-      @input.is_a?(String)
+    def self.conversion_types
+      [String]
     end
   end
 end
