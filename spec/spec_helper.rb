@@ -1,3 +1,6 @@
+require "simplecov"
+SimpleCov.start
+
 require "words_and_numbers"
 
 RSpec.configure do |config|
