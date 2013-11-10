@@ -5,7 +5,6 @@ Convert numbers to and from words.
 ##Instalation
 ```
 gem "words_and_numbers", git: "git://github.com/davestevens/words_and_numbers.git"
-gem "words_and_numbers", git: "git://github.com/davestevens/words_and_numbers"
 ```
 
 ##Usage
